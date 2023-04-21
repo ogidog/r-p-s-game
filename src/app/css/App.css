@@ -3,10 +3,10 @@
 :root {
 
     --scissors-shadow-color: hsl(39, 93%, 41%);
-    --scissor-border-color: hsl(40, 84%, 53%);
-    --paper-shadow-color: hsl(230, 89%, 62%);
+    --scissors-border-color: hsl(40, 84%, 53%);
+    --paper-shadow-color: hsl(230, 57%, 45%);
     --paper-border-color: hsl(230, 89%, 65%);
-    --rock-shadow-color: hsl(349, 71%, 52%);
+    --rock-shadow-color: hsl(349, 97%, 36%);
     --rock-border-color: hsl(349, 70%, 56%);
     --lizard-shadow-color: hsl(261, 73%, 60%);
     --lizard-border-color: hsl(261, 72%, 63%);
@@ -27,4 +27,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     font-family: 'Barlow Semi Condensed', sans-serif;
+
+    min-height: 100vh;
 }
