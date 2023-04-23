@@ -4,13 +4,9 @@ import styled from "styled-components";
 import {MainPage} from "pages/index";
 
 const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
   
   overflow: auto;
   

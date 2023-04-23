@@ -1,33 +1,37 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {Footer, Header, SelectThreeSignForm} from "widgets/index";
+import {Footer, Header, Main, SelectThreeSignForm} from "widgets/index";
 
 const StyledContainer = styled.div`
+  @media (max-width: 1024px) {
+    min-width: 375px;
+    max-width: 490px;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 100vh;
-    
-    max-width: 480px;
-    max-height: 800px;
+    padding: 15px 20px 15px 20px;
+    margin: 0 auto;
   }
 
-  @media (min-width: 769px) {
-    width: 769px;
-    height: 750px;
+  @media (min-width: 1025px) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 750px;
+    height: fit-content;
   }
 
-  display: flex;
-  flex-direction: column;
- 
+  border: 1px solid red;
 `
 
 export const MainPage = () => {
     return (
         <StyledContainer>
             <Header/>
-            <SelectThreeSignForm/>
-            <Footer/>
+            <Main>
+                <SelectThreeSignForm/>
+            </Main>
+            {/*<Footer/>*/}
         </StyledContainer>
     );
 };

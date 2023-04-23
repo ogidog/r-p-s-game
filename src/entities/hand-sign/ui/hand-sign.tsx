@@ -17,36 +17,42 @@ const icons: { [key in HandSignType]: any } = {
     spock: IconSpock,
 };
 
-const StyledContainer = styled.div<{ sign: HandSignType }>`
-  min-width: 30px;
-  min-height: 30px;
-  max-width: 115px;
-  max-height: 115px;
-  width: 100%;
-  height: 100%;
+const StyledContainer = styled.div<{ sign: HandSignType, x: number, y: number }>`
+  @media(min-width: 1025px){
+    width: 165px;
+    height: 165px;
+    
+    border-width: 20px;
 
+    background-size: 45%, 45%;
+  }
+  
+  position: absolute;
+  top: ${props => props.y + 'px'};
+  left: ${props => props.x + 'px'};
+  
   border-radius: 50%;
   border-style: solid;
   border-color: ${props => `var(--${props.sign}-border-color)`};
-  border-width: 12px;
   box-sizing: border-box;
-  
 
   background-color: white;
   background-image: ${props => `url(${icons[props.sign]})`};
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 70% 70%;
 
   box-shadow: inset 0px 6px lightgray, 0px 6px ${props => `var(--${props.sign}-shadow-color)`};
 `
 
 type Props = {
-    sign: HandSignType
+    sign: HandSignType;
+    x: number;
+    y: number;
 };
 
 export const HandSign = (props: Props) => {
+    const {sign, x, y} = props
     return (
-        <StyledContainer sign={props.sign} />
+        <StyledContainer sign={props.sign} x={x} y={y}/>
     );
 };
