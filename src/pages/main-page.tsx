@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {Footer, Header, Main, SelectThreeSignForm} from "widgets/index";
+import {Footer, Header, Main, ThreeSignsForm} from "widgets/index";
+import {FiveSignsForm} from "../widgets/five-signs-form/ui/five-signs-form";
 
 const StyledContainer = styled.div`
   @media (max-width: 1024px) {
@@ -21,7 +22,7 @@ const StyledContainer = styled.div`
     height: fit-content;
   }
 
-  border: 1px solid red;
+  //border: 1px solid red;
 `
 
 export const MainPage = () => {
@@ -29,9 +30,10 @@ export const MainPage = () => {
         <StyledContainer>
             <Header/>
             <Main>
-                <SelectThreeSignForm/>
+                {/*<ThreeSignsForm/>*/}
+                <FiveSignsForm/>
             </Main>
-            {/*<Footer/>*/}
+            <Footer/>
         </StyledContainer>
     );
 };

@@ -6,8 +6,16 @@ import IconPaper from "../assets/images/icon-paper.svg";
 import IconRock from "../assets/images/icon-rock.svg";
 import IconSpock from "../assets/images/icon-spock.svg";
 
+type Size = "small" | "normal" | "large";
 
 type HandSignType = "lizard" | "paper" | "rock" | "scissors" | "spock";
+
+type Props = {
+    sign: HandSignType;
+    x: string;
+    y: string;
+    size: Size;
+};
 
 const icons: { [key in HandSignType]: any } = {
     scissors: IconScissors,
@@ -17,20 +25,27 @@ const icons: { [key in HandSignType]: any } = {
     spock: IconSpock,
 };
 
-const StyledContainer = styled.div<{ sign: HandSignType, x: number, y: number }>`
-  @media(min-width: 1025px){
-    width: 165px;
-    height: 165px;
-    
+const size: { [key in Size]: string } = {
+    "small": "110px",
+    "normal": "130px",
+    "large": "165px"
+}
+
+const StyledContainer = styled.div<Props>`
+
+  @media (min-width: 1025px) {
+    width: ${props => props.width};
+    height: ${props => props.height};
+
     border-width: 20px;
 
     background-size: 45%, 45%;
   }
-  
+
   position: absolute;
-  top: ${props => props.y + 'px'};
-  left: ${props => props.x + 'px'};
-  
+  top: ${props => props.y};
+  left: ${props => props.x};
+
   border-radius: 50%;
   border-style: solid;
   border-color: ${props => `var(--${props.sign}-border-color)`};
@@ -44,15 +59,8 @@ const StyledContainer = styled.div<{ sign: HandSignType, x: number, y: number }>
   box-shadow: inset 0px 6px lightgray, 0px 6px ${props => `var(--${props.sign}-shadow-color)`};
 `
 
-type Props = {
-    sign: HandSignType;
-    x: number;
-    y: number;
-};
-
 export const HandSign = (props: Props) => {
-    const {sign, x, y} = props
     return (
-        <StyledContainer sign={props.sign} x={x} y={y}/>
+        <StyledContainer {...props} />
     );
 };
