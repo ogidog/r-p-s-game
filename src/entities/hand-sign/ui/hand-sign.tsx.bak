@@ -6,13 +6,15 @@ import IconPaper from "../assets/images/icon-paper.svg";
 import IconRock from "../assets/images/icon-rock.svg";
 import IconSpock from "../assets/images/icon-spock.svg";
 
+type Size = "small" | "normal" | "large";
+
 type HandSignType = "lizard" | "paper" | "rock" | "scissors" | "spock";
 
 type Props = {
     sign: HandSignType;
     x: string;
     y: string;
-    rotate?: string
+    size: Size;
 };
 
 const icons: { [key in HandSignType]: any } = {
@@ -23,18 +25,22 @@ const icons: { [key in HandSignType]: any } = {
     spock: IconSpock,
 };
 
+const size: { [key in Size]: any } = {
+    "small": {width: "110px", height: "110px", borderWidth: "9px"},
+    "normal": {width: "130px", height: "130px", borderWidth: "13px"},
+    "large": {width: "165px", height: "165px", borderWidth: "20px"},
+}
 
 const StyledContainer = styled.div<Props>`
 
-  width: 31%;
-  height: 31%;
+  width: ${props => size[props.size].width};
+  height: ${props => size[props.size].height};
 
-  border-width: 10px;
-
+  border-width: ${props => size[props.size].borderWidth};
+  
   position: absolute;
   top: ${props => props.y};
   left: ${props => props.x};
-  transform: rotate(${props => props.rotate});
 
   border-radius: 50%;
   border-style: solid;

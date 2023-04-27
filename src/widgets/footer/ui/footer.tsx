@@ -3,16 +3,16 @@ import styled from "styled-components";
 import {RulesButton} from "entities/index";
 
 const StyledContainer = styled.div`
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  
   @media (min-width: 1025px) {
-    display: flex;
     justify-content: flex-end;
-
-    width: 100%;
-    height: fit-content;
   }
   
   @media(max-width: 1024px){
-    
+    justify-content: center;
   }
 `
 

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {Footer, Header, Main, ThreeSignsForm} from "widgets/index";
-import {FiveSignsForm} from "../widgets/five-signs-form/ui/five-signs-form";
+import {Footer, Header, Main, ThreeSignsForm, FiveSignsForm} from "widgets/index";
 
 const StyledContainer = styled.div`
   @media (max-width: 1024px) {
-    min-width: 375px;
+    min-width: 310px;
     max-width: 490px;
+    height: 100%;
 
-    padding: 15px 20px 15px 20px;
+    padding: 15px 35px 15px 35px;
     margin: 0 auto;
   }
 
@@ -21,8 +21,7 @@ const StyledContainer = styled.div`
     width: 750px;
     height: fit-content;
   }
-
-  //border: 1px solid red;
+  
 `
 
 export const MainPage = () => {
