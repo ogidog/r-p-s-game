@@ -1,26 +1,23 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {RulesButton} from "entities/index";
+import {ControlButton} from "entities/index";
 
 const StyledContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: stretch;
+  
   width: 100%;
   height: fit-content;
   
-  @media (min-width: 1025px) {
-    justify-content: flex-end;
-  }
-  
-  @media(max-width: 1024px){
-    justify-content: center;
-  }
 `
 
 type Props = {};
 export const Footer = (props: Props) => {
     return (
         <StyledContainer>
-            <RulesButton/>
+            <ControlButton text={"bonus"} style={{justifySelf:"self-start"}}/>
+            <ControlButton text={"rules"} style={{justifySelf:"self-end"}}/>
         </StyledContainer>
     );
 };

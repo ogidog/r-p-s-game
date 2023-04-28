@@ -6,41 +6,39 @@ import BgPentagon from "../assets/images/bg-pentagon.svg";
 const StyledContainer = styled.div`
   position: relative;
 
-  width: 100%;
+  width: 71%;
   aspect-ratio: 1 / 1;
 
   background-image: url(${BgPentagon});
-  background-size: contain;
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
 `
 
-const SignContainer = styled.div<{ rotate: string }>`
+const SignContainer = styled.div<{ style?: { [key: string]: string } }>`
   position: absolute;
   width: 100%;
   height: 100%;
-  transform: rotate(${props => props.rotate});
 `
-
 
 type Props = {};
 export const FiveSignsForm = (props: Props) => {
     return (
         <StyledContainer>
-            <SignContainer rotate={"-19deg"}>
-                <HandSign sign={"paper"} x={"83%"} y={"40%"}/>
+            <SignContainer style={{transform: "rotate(-28deg)"}}>
+                <HandSign sign={"rock"} style={{transform: "rotate(28deg)", left: "-10%"}}/>
             </SignContainer>
-            <SignContainer rotate={"19deg"}>
-                <HandSign sign={"scissors"} x={"-13%"} y={"41%"} rotate={"-20deg"}/>
+            <SignContainer style={{transform: "rotate(45deg)"}} >
+                <HandSign sign={"paper"} style={{transform: "rotate(-38deg)"}}/>
             </SignContainer>
-            <SignContainer rotate={"90deg"}>
-                <HandSign sign={"rock"} x={"-7%"} y={"35%"} rotate={"-90deg"}/>
+            <SignContainer style={{transform: "rotate(118deg)"}}>
+                <HandSign sign={"scissors"} style={{transform: "rotate(-118deg)", top: "-10%"}}/>
             </SignContainer>
-            <SignContainer rotate={"270deg"}>
-                <HandSign sign={"spock"} x={"-10%"} y={"7%"} rotate={"88deg"}/>
+            <SignContainer style={{transform: "rotate(196deg)"}}>
+                <HandSign sign={"lizard"} style={{transform: "rotate(158deg)", top: "-5%", left: "-10%"}}/>
             </SignContainer>
-            <SignContainer rotate={"203deg"}>
-                <HandSign sign={"lizard"} x={"-6%"} y={"5%"} rotate={"161deg"}/>
+            <SignContainer style={{transform: "rotate(-106deg)"}}>
+                <HandSign sign={"spock"} style={{transform: "rotate(106deg)", top: "-10%", left: "-5%"}}/>
             </SignContainer>
         </StyledContainer>
     );

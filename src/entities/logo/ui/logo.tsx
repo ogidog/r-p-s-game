@@ -18,7 +18,7 @@ type Props = {};
 export const Logo = (props: Props) => {
     return (
         <StyledContainer>
-            <img src={_Logo}/>
+            <img src={LogoBonus}/>
         </StyledContainer>
     );
 };

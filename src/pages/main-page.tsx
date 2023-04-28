@@ -3,12 +3,20 @@ import styled from "styled-components";
 import {Footer, Header, Main, ThreeSignsForm, FiveSignsForm} from "widgets/index";
 
 const StyledContainer = styled.div`
-  @media (max-width: 1024px) {
-    min-width: 310px;
-    max-width: 490px;
-    height: 100%;
+  
+  display: grid;
+  grid-row-gap: 50px;
+  grid-template-rows: fit-content(5px) 1fr fit-content(5px);
 
-    padding: 15px 35px 15px 35px;
+  min-width: 355px;
+  max-width: 750px;
+  min-height: 640px;
+  
+  @media (max-width: 1024px) {
+    height: 100vh;
+    box-sizing: border-box;
+
+    padding: 15px 15px 15px 15px;
     margin: 0 auto;
   }
 
@@ -18,7 +26,7 @@ const StyledContainer = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
 
-    width: 750px;
+    width: 100%;
     height: fit-content;
   }
   

@@ -1,20 +1,25 @@
 import * as React from 'react';
 import styled from "styled-components";
 import {HandSign} from "entities/index";
-import BgTrinagle from "../assets/images/bg-triangle.svg";
+import BgTriangle from "../assets/images/bg-triangle.svg";
 
 const StyledContainer = styled.div`
-  
-  margin: 0 auto;
-  
-  width: 378px;
-  height: 378px;
-  
-  background-image: url(${BgTrinagle});
+  position: relative;
+
+  width: 71%;
+  aspect-ratio: 1 / 1;
+
+  background-image: url(${BgTriangle});
+  background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
+`
 
-  //border: 1px solid red;
+const SignContainer = styled.div<{ rotate: string }>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(${props => props.rotate});
 `
 
 
@@ -22,9 +27,15 @@ type Props = {};
 export const ThreeSignsForm = (props: Props) => {
     return (
         <StyledContainer>
-            {/*<HandSign sign={"paper"} x={"-20px"} y={"-20px"} size={"small"}/>*/}
-            {/*<HandSign sign={"rock"} x={"250px"} y={"-20px"} size={"small"}/>*/}
-            {/*<HandSign sign={"scissors"} x={"105px"} y={"210px"} size={"small"}/>*/}
+            <SignContainer rotate={"0deg"}>
+                <HandSign sign={"rock"} style={{left:"-10%", top:"-10%"}}/>
+            </SignContainer>
+            <SignContainer rotate={"90deg"}>
+                <HandSign sign={"paper"} style={{rotate:"-90deg", left:"-10%", top:"-10%"}}/>
+            </SignContainer>
+            <SignContainer rotate={"225deg"}>
+                <HandSign sign={"scissors"} style={{rotate:"130deg", left:"10%", top:"10%"}} />
+            </SignContainer>
         </StyledContainer>
     );
 };

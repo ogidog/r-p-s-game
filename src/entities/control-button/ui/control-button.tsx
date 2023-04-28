@@ -14,13 +14,15 @@ const Button = styled.button`
   border-radius: 15px;
   border: 2px solid #fafafa;
 
+  cursor: pointer;
+
 `
 
-type Props = {};
-export const RulesButton = (props: Props) => {
+type Props = { text: string, style: { [key: string]: string } };
+export const ControlButton = (props: Props) => {
     return (
-        <Button>
-            RULES
+        <Button style={props.style}>
+            {props.text.toUpperCase()}
         </Button>
     );
 };

@@ -10,9 +10,10 @@ type HandSignType = "lizard" | "paper" | "rock" | "scissors" | "spock";
 
 type Props = {
     sign: HandSignType;
-    x: string;
-    y: string;
-    rotate?: string
+    top?: string;
+    left?: string;
+    rotate?: string;
+    style: { [key: string]: string }
 };
 
 const icons: { [key in HandSignType]: any } = {
@@ -26,16 +27,13 @@ const icons: { [key in HandSignType]: any } = {
 
 const StyledContainer = styled.div<Props>`
 
-  width: 31%;
-  height: 31%;
+  width: 43%;
+  height: 43%;
 
-  border-width: 10px;
+  border-width: 15px;
 
   position: absolute;
-  top: ${props => props.y};
-  left: ${props => props.x};
-  transform: rotate(${props => props.rotate});
-
+  
   border-radius: 50%;
   border-style: solid;
   border-color: ${props => `var(--${props.sign}-border-color)`};
@@ -52,6 +50,6 @@ const StyledContainer = styled.div<Props>`
 
 export const HandSign = (props: Props) => {
     return (
-        <StyledContainer {...props} />
+        <StyledContainer {...props}/>
     );
 };
