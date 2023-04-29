@@ -1,4 +1,3 @@
-import * as React from 'react';
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -17,11 +16,10 @@ const Button = styled.button`
   cursor: pointer;
 
 `
-type Props = { text: string, style?: { [key: string]: string }, events?: any };
-export const ControlButton = (props: Props) => {
+type Props = { text: string, style?: { [key: string]: string }, class?: string, events?: any };
+export const ButtonA = (props: Props) => {
     return (
-        <Button style={props.style} {...props.events}>
-            {props.text.toUpperCase()}
+        <Button style={props.style} className={props.class} {...props.events} >
+            {props.text}
         </Button>
-    );
-};
+)};

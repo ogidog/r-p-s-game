@@ -22,19 +22,21 @@ const SignContainer = styled.div<{ rotate: string }>`
   transform: rotate(${props => props.rotate});
 `
 
+export const ThreeSignsForm = () => {
+    const onClickHandSignHandler = ()=>{
 
-type Props = {};
-export const ThreeSignsForm = (props: Props) => {
+    }
+
     return (
         <StyledContainer>
             <SignContainer rotate={"0deg"}>
                 <HandSign sign={"rock"} style={{left:"-10%", top:"-10%"}}/>
             </SignContainer>
             <SignContainer rotate={"90deg"}>
-                <HandSign sign={"paper"} style={{rotate:"-90deg", left:"-10%", top:"-10%"}}/>
+                <HandSign sign={"paper"} style={{transform:"rotate(-90deg)", left:"-10%", top:"-10%"}}/>
             </SignContainer>
             <SignContainer rotate={"225deg"}>
-                <HandSign sign={"scissors"} style={{rotate:"130deg", left:"10%", top:"10%"}} />
+                <HandSign sign={"scissors"} style={{transform:"rotate(130deg)", left:"10%", top:"10%"}} />
             </SignContainer>
         </StyledContainer>
     );

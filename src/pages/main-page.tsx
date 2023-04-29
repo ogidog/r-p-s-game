@@ -1,9 +1,11 @@
 import * as React from 'react';
 import styled from "styled-components";
 import {Footer, Header, Main, ThreeSignsForm, FiveSignsForm} from "widgets/index";
+import {useSelector} from "react-redux";
+import {selectBonusGame} from "shared/slices/game-slice";
 
 const StyledContainer = styled.div`
-  
+
   display: grid;
   grid-row-gap: 50px;
   grid-template-rows: fit-content(5px) 1fr fit-content(5px);
@@ -11,7 +13,7 @@ const StyledContainer = styled.div`
   min-width: 355px;
   max-width: 750px;
   min-height: 640px;
-  
+
   @media (max-width: 1024px) {
     height: 100vh;
     box-sizing: border-box;
@@ -29,16 +31,16 @@ const StyledContainer = styled.div`
     width: 100%;
     height: fit-content;
   }
-  
+
 `
 
 export const MainPage = () => {
+    const isBonusGame = useSelector(selectBonusGame)
     return (
         <StyledContainer>
             <Header/>
             <Main>
-                {/*<ThreeSignsForm/>*/}
-                <FiveSignsForm/>
+                {isBonusGame ? <FiveSignsForm/> : <ThreeSignsForm/>}
             </Main>
             <Footer/>
         </StyledContainer>
