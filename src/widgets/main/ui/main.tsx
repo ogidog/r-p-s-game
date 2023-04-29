@@ -5,11 +5,10 @@ import styled from "styled-components";
 const StyledContainer = styled.div`
   position: relative;
   
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  justify-items: center;
   align-items: center;
-
+  
   width: 100%;
   
   @media (min-width: 1025px) {
@@ -24,6 +23,7 @@ const StyledContainer = styled.div`
 type Props = {
     children: ReactNode | ReactNode[]
 };
+
 export const Main: FC<Props> = ({children}) => {
     return (
         <StyledContainer>

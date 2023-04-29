@@ -15,31 +15,15 @@ const StyledContainer = styled.div`
   background-repeat: no-repeat;
 `
 
-const SignContainer = styled.div<{ style?: { [key: string]: string } }>`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-`
+export const FiveSignsForm = () => {
 
-type Props = {};
-export const FiveSignsForm = (props: Props) => {
     return (
         <StyledContainer>
-            <SignContainer style={{transform: "rotate(-28deg)"}}>
-                <HandSign sign={"rock"} style={{transform: "rotate(28deg)", left: "-10%"}}/>
-            </SignContainer>
-            <SignContainer style={{transform: "rotate(45deg)"}} >
-                <HandSign sign={"paper"} style={{transform: "rotate(-38deg)"}}/>
-            </SignContainer>
-            <SignContainer style={{transform: "rotate(118deg)"}}>
-                <HandSign sign={"scissors"} style={{transform: "rotate(-118deg)", top: "-10%"}}/>
-            </SignContainer>
-            <SignContainer style={{transform: "rotate(196deg)"}}>
-                <HandSign sign={"lizard"} style={{transform: "rotate(158deg)", top: "-5%", left: "-10%"}}/>
-            </SignContainer>
-            <SignContainer style={{transform: "rotate(-106deg)"}}>
-                <HandSign sign={"spock"} style={{transform: "rotate(106deg)", top: "-10%", left: "-5%"}}/>
-            </SignContainer>
+            <HandSign sign={"rock"} style={{left: "-14%", top: "15%"}}/>
+            <HandSign sign={"paper"} style={{left: "28%", top: "-14%"}}/>
+            <HandSign sign={"scissors"} style={{left: "70%", top: "15%"}}/>
+            <HandSign sign={"lizard"} style={{left: "0%", top: "70%"}}/>
+            <HandSign sign={"spock"} style={{left: "60%", top: "70%"}}/>
         </StyledContainer>
     );
 };

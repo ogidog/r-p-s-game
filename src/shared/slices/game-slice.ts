@@ -2,6 +2,8 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../store/store";
 import {SignType} from "app/types";
 
+
+
 export interface IGameState {
     isBonusGame: boolean;
     selectedSign: SignType | "";
@@ -9,7 +11,7 @@ export interface IGameState {
 
 const initialState: IGameState = {
     isBonusGame: false,
-    selectedSign: "",
+    selectedSign: ""
 }
 
 const gameSlice = createSlice({
@@ -26,6 +28,7 @@ const gameSlice = createSlice({
 });
 
 export const selectBonusGame = (state: RootState): IGameState["isBonusGame"] => state.game.isBonusGame;
+export const selectSelectedSign = (state: RootState): IGameState["selectedSign"] => state.game.selectedSign;
 
 export const {setBonusGame, selectSign} = gameSlice.actions;
 export default gameSlice.reducer;

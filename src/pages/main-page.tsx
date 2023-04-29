@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled from "styled-components";
-import {Footer, Header, Main, ThreeSignsForm, FiveSignsForm} from "widgets/index";
+import {Footer, Header, Main, ThreeSignsForm, FiveSignsForm, ResultForm} from "widgets/index";
 import {useSelector} from "react-redux";
-import {selectBonusGame} from "shared/slices/game-slice";
+import {selectBonusGame, selectSelectedSign} from "shared/slices/game-slice";
 
 const StyledContainer = styled.div`
 
   display: grid;
-  grid-row-gap: 50px;
+  grid-row-gap: 85px;
   grid-template-rows: fit-content(5px) 1fr fit-content(5px);
 
   min-width: 355px;
@@ -35,12 +35,14 @@ const StyledContainer = styled.div`
 `
 
 export const MainPage = () => {
-    const isBonusGame = useSelector(selectBonusGame)
+    const isBonusGame = useSelector(selectBonusGame);
+    const selectedSign = useSelector(selectSelectedSign);
+
     return (
         <StyledContainer>
             <Header/>
             <Main>
-                {isBonusGame ? <FiveSignsForm/> : <ThreeSignsForm/>}
+                {selectedSign ? <ResultForm/> : isBonusGame ? <FiveSignsForm/> : <ThreeSignsForm/>}
             </Main>
             <Footer/>
         </StyledContainer>

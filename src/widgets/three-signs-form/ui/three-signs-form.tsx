@@ -15,29 +15,12 @@ const StyledContainer = styled.div`
   background-repeat: no-repeat;
 `
 
-const SignContainer = styled.div<{ rotate: string }>`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transform: rotate(${props => props.rotate});
-`
-
 export const ThreeSignsForm = () => {
-    const onClickHandSignHandler = ()=>{
-
-    }
-
     return (
         <StyledContainer>
-            <SignContainer rotate={"0deg"}>
-                <HandSign sign={"rock"} style={{left:"-10%", top:"-10%"}}/>
-            </SignContainer>
-            <SignContainer rotate={"90deg"}>
-                <HandSign sign={"paper"} style={{transform:"rotate(-90deg)", left:"-10%", top:"-10%"}}/>
-            </SignContainer>
-            <SignContainer rotate={"225deg"}>
-                <HandSign sign={"scissors"} style={{transform:"rotate(130deg)", left:"10%", top:"10%"}} />
-            </SignContainer>
+            <HandSign sign={"rock"} style={{left: "-10%", top: "-10%"}} />
+            <HandSign sign={"paper"} style={{left: "69%", top: "-10%"}}/>
+            <HandSign sign={"scissors"} style={{left: "30%", top: "50%"}}/>
         </StyledContainer>
     );
 };
