@@ -3,14 +3,15 @@ import styled from "styled-components";
 import {SignType} from "app/types/index"
 import {SIGN_ICONS} from "app/const";
 import {FC} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {selectSelectedSign, selectSign} from "shared/slices/game-slice";
+import {useDispatch} from "react-redux";
+import {selectSign} from "shared/slices/game-slice";
 
 const StyledContainer = styled.div<Props>`
+
   position: absolute;
 
   width: 43%;
-  height: 43%;
+  aspect-ratio: 1 / 1;
 
   border-width: 15px;
   border-radius: 50%;
@@ -24,20 +25,19 @@ const StyledContainer = styled.div<Props>`
   background-repeat: no-repeat;
   background-size: 45%, 45%;
 
-  box-shadow: inset 0px 6px lightgray, 0px 6px ${props => `var(--${props.sign}-shadow-color)`};
+  box-shadow: ${props => `inset 0px 6px lightgray, 0px 6px var(--${props.sign}-shadow-color) ${props.isWin ? ', 0px 0px 1px 50px rgba(241, 241, 241, 0.05), 0px 0px 1px 100px rgba(241, 241, 241, 0.05), 0px 0px 1px 160px rgba(241, 241, 241, 0.05)' : ''}`};
 
   cursor: pointer;
-
 `
 
 type Props = {
     sign: SignType;
     disabled?: boolean;
+    isWin?: boolean;
     style?: { [key: string]: string | number };
-    events?: any;
 };
 
-export const HandSign: FC<Props> = ({disabled = false, ...props}) => {
+export const HandSign: FC<Props> = ({disabled = false, isWin = false, ...props}) => {
     const dispatch = useDispatch();
 
     const clickHandler = () => {
@@ -45,6 +45,6 @@ export const HandSign: FC<Props> = ({disabled = false, ...props}) => {
     }
 
     return (
-        <StyledContainer sign={props.sign} style={props.style} {...props.events} onClick={clickHandler}/>
+        <StyledContainer sign={props.sign} style={props.style} onClick={clickHandler} isWin={isWin}/>
     );
 };

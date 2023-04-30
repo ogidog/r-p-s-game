@@ -6,8 +6,25 @@ import BgTriangle from "../assets/images/bg-triangle.svg";
 const StyledContainer = styled.div`
   position: relative;
 
-  width: 71%;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 520px;
+  max-height: 520px;
   aspect-ratio: 1 / 1;
+
+  align-self: center;
+
+  border: 1px solid red;
+`
+
+const SignContainer = styled.div`
+  position: relative;
+
+  height: 81%;
+  width: 81%;
 
   background-image: url(${BgTriangle});
   background-size: 100%;
@@ -18,9 +35,11 @@ const StyledContainer = styled.div`
 export const ThreeSignsForm = () => {
     return (
         <StyledContainer>
-            <HandSign sign={"rock"} style={{left: "-10%", top: "-10%"}} />
-            <HandSign sign={"paper"} style={{left: "69%", top: "-10%"}}/>
-            <HandSign sign={"scissors"} style={{left: "30%", top: "50%"}}/>
+            <SignContainer>
+                <HandSign sign={"rock"} style={{left: "-10%", top: "-10%"}}/>
+                <HandSign sign={"paper"} style={{left: "68%", top: "-10%"}}/>
+                <HandSign sign={"scissors"} style={{left: "30%", top: "57%"}}/>
+            </SignContainer>
         </StyledContainer>
     );
 };

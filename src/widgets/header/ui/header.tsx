@@ -14,6 +14,7 @@ const StyledContainer = styled.div`
   box-sizing: border-box;
 
   width: 100%;
+  max-width: 640px;
   height: fit-content;
   
 `
