@@ -16,8 +16,7 @@ const StyledContainer = styled.div`
   aspect-ratio: 1 / 1;
 
   align-self: center;
-
-  border: 1px solid red;
+  
 `
 
 const SignContainer = styled.div`

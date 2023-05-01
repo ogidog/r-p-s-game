@@ -14,13 +14,11 @@ const StyledContainer = styled.div`
   min-width: 355px;
   max-width: 1360px;
 
-  border: 1px solid green;
+  padding: 15px 15px 15px 15px;
+  box-sizing: border-box;
 
   @media (max-width: 1024px) {
     height: 100vh;
-    box-sizing: border-box;
-
-    padding: 15px 15px 15px 15px;
     margin: 0 auto;
   }
 

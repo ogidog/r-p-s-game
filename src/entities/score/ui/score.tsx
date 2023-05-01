@@ -1,5 +1,7 @@
 import * as React from 'react';
 import styled from "styled-components";
+import {useSelector} from "react-redux";
+import {selectGameScore} from "shared/slices/game-slice";
 
 const StyledContainer = styled.div`
 
@@ -38,12 +40,13 @@ const ScoreValue = styled.div`
   color: var(--dark-text);
 `
 
-type Props = {};
-export const Score = (props: Props) => {
+export const Score = () => {
+    const gameScore = useSelector(selectGameScore);
+
     return (
         <StyledContainer>
             <Label>SCORE</Label>
-            <ScoreValue>12</ScoreValue>
+            <ScoreValue>{gameScore}</ScoreValue>
         </StyledContainer>
     );
 };

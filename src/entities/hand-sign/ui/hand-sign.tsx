@@ -13,7 +13,7 @@ const StyledContainer = styled.div<Props>`
   width: 43%;
   aspect-ratio: 1 / 1;
 
-  border-width: 15px;
+  border-width: 20px;
   border-radius: 50%;
   border-style: solid;
   border-color: ${props => `var(--${props.sign}-border-color)`};

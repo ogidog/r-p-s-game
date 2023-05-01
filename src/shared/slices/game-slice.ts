@@ -6,12 +6,14 @@ export interface IGameState {
     isBonusGame: boolean;
     selectedSign: SignType | "";
     gameResult: "YOU WIN" | "YOU LOOSE" | "DRAW" | "";
+    gameScore: number;
 }
 
 const initialState: IGameState = {
     isBonusGame: false,
     selectedSign: "",
     gameResult: "",
+    gameScore: localStorage["gameScore"] ? +localStorage["gameScore"] : 0,
 }
 
 const gameSlice = createSlice({
@@ -26,6 +28,9 @@ const gameSlice = createSlice({
         },
         setResult: (state, action: PayloadAction<IGameState["gameResult"]>) => {
             state.gameResult = action.payload;
+        },
+        setScore: (state, action: PayloadAction<IGameState["gameScore"]>) => {
+            state.gameScore = action.payload;
         }
     }
 });
@@ -33,6 +38,7 @@ const gameSlice = createSlice({
 export const selectBonusGame = (state: RootState): IGameState["isBonusGame"] => state.game.isBonusGame;
 export const selectSelectedSign = (state: RootState): IGameState["selectedSign"] => state.game.selectedSign;
 export const selectGameResult = (state: RootState): IGameState["gameResult"] => state.game.gameResult;
+export const selectGameScore = (state: RootState): IGameState["gameScore"] => state.game.gameScore;
 
-export const {setBonusGame, selectSign, setResult} = gameSlice.actions;
+export const {setBonusGame, selectSign, setResult, setScore} = gameSlice.actions;
 export default gameSlice.reducer;
