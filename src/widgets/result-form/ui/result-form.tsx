@@ -13,7 +13,7 @@ import {
 import {SignType} from "app/types";
 import {PlayAgain} from "features/index";
 import {RULES, SIGNS} from "app/const";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 const StyledContainer = styled.div`
   position: relative;
@@ -56,12 +56,11 @@ const getRandomSign = (isBonusGame: boolean): SignType => {
     return SIGNS[isBonusGame ? Math.floor(Math.random() * 5) : Math.floor(Math.random() * 3)] as SignType;
 };
 
-const getGameResult = (yourSign: SignType, hostSign: SignType): IGameState["gameResult"] => {
-    // console.log(yourSign, hostSign, yourSign === hostSign)
-    if (yourSign === hostSign) {
+const getGameResult = (yourSign: SignType, houseSign: SignType): IGameState["gameResult"] => {
+    if (yourSign === houseSign) {
         return "DRAW";
     } else {
-        return RULES[yourSign].includes(hostSign) ? "YOU WIN" : "YOU LOOSE";
+        return RULES[yourSign].includes(houseSign) ? "YOU WIN" : "YOU LOOSE";
     }
 }
 
@@ -88,17 +87,24 @@ export const ResultForm = () => {
     const selectedSign = useSelector(selectSelectedSign) as SignType;
     const isBonusGame = useSelector(selectBonusGame);
     let gameScore = useSelector(selectGameScore);
-    const dispatch = useDispatch();
 
-    const houseSign = getRandomSign(isBonusGame);
-    const gameResult = getGameResult(selectedSign, houseSign);
-    const signWinState = getSignWinState(gameResult);
-    gameScore = computeScore(gameResult, gameScore);
+    const dispatch = useDispatch();
+    let [[houseSign, signWinState], setState] = useState<[SignType | "", boolean[]]>(["", [false, false]]);
 
     useEffect(() => {
-        // TODO: timer
-        dispatch(setResult(gameResult))
-        dispatch(setScore(gameScore));
+        const timeout = setTimeout(() => {
+            houseSign = getRandomSign(isBonusGame);
+            const gameResult = getGameResult(selectedSign, houseSign);
+            signWinState = getSignWinState(gameResult);
+            gameScore = computeScore(gameResult, gameScore);
+
+            setState([houseSign, [...signWinState]])
+            dispatch(setResult(gameResult))
+            dispatch(setScore(gameScore));
+        }, 700);
+
+        return () => clearTimeout(timeout);
+
     }, [])
 
     return (

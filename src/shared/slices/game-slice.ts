@@ -31,7 +31,7 @@ const gameSlice = createSlice({
         },
         setScore: (state, action: PayloadAction<IGameState["gameScore"]>) => {
             state.gameScore = action.payload;
-        }
+        },
     }
 });
 

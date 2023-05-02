@@ -13,14 +13,14 @@ const StyledContainer = styled.div<Props>`
   width: 43%;
   aspect-ratio: 1 / 1;
 
-  border-width: 20px;
+  border-width: ${props => props.sign ? "20px" : "0px"};
   border-radius: 50%;
   border-style: solid;
   border-color: ${props => `var(--${props.sign}-border-color)`};
   box-sizing: border-box;
 
-  background-color: white;
-  background-image: ${props => `url(${SIGN_ICONS[props.sign]})`};
+  background-color: ${props => props.sign ? "white" : "rgb(3, 13, 49, 0.5)"};
+  background-image: ${props => props.sign ? `url(${SIGN_ICONS[props.sign]})` : ""};
   background-position: center;
   background-repeat: no-repeat;
   background-size: 45%, 45%;
@@ -31,7 +31,7 @@ const StyledContainer = styled.div<Props>`
 `
 
 type Props = {
-    sign: SignType;
+    sign: SignType | "";
     disabled?: boolean;
     isWin?: boolean;
     style?: { [key: string]: string | number };
