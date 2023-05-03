@@ -7,7 +7,7 @@ import {selectBonusGame, selectSelectedSign} from "shared/slices/game-slice";
 const StyledContainer = styled.div`
 
   display: grid;
-  grid-row-gap: 15px;
+  grid-row-gap: 45px;
   grid-template-rows: fit-content(5px) 1fr fit-content(5px);
   justify-items: center;
 

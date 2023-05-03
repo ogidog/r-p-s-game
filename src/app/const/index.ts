@@ -12,6 +12,7 @@ export const RULES = {
     "lizard": ["paper", "spock"],
     "spock": ["scissors", "rock"]
 }
+
 export const SIGNS = ["rock", "scissors", "paper", "lizard", "spock", ""]
 
 export const SIGN_ICONS: { [key in SignType]: any } = {
@@ -21,3 +22,5 @@ export const SIGN_ICONS: { [key in SignType]: any } = {
     rock: IconRock,
     spock: IconSpock,
 };
+
+

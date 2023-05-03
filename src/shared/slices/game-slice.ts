@@ -7,6 +7,7 @@ export interface IGameState {
     selectedSign: SignType | "";
     gameResult: "YOU WIN" | "YOU LOOSE" | "DRAW" | "";
     gameScore: number;
+    isRulesVisible: boolean;
 }
 
 const initialState: IGameState = {
@@ -14,6 +15,7 @@ const initialState: IGameState = {
     selectedSign: "",
     gameResult: "",
     gameScore: localStorage["gameScore"] ? +localStorage["gameScore"] : 0,
+    isRulesVisible: false,
 }
 
 const gameSlice = createSlice({
@@ -32,6 +34,10 @@ const gameSlice = createSlice({
         setScore: (state, action: PayloadAction<IGameState["gameScore"]>) => {
             state.gameScore = action.payload;
         },
+        showRules: (state) => {
+            console.log(state.isRulesVisible)
+            state.isRulesVisible = !state.isRulesVisible;
+        }
     }
 });
 
@@ -39,6 +45,7 @@ export const selectBonusGame = (state: RootState): IGameState["isBonusGame"] => 
 export const selectSelectedSign = (state: RootState): IGameState["selectedSign"] => state.game.selectedSign;
 export const selectGameResult = (state: RootState): IGameState["gameResult"] => state.game.gameResult;
 export const selectGameScore = (state: RootState): IGameState["gameScore"] => state.game.gameScore;
+export const selectRulesVisible = (state: RootState): IGameState["isRulesVisible"] => state.game.isRulesVisible;
 
-export const {setBonusGame, selectSign, setResult, setScore} = gameSlice.actions;
+export const {setBonusGame, selectSign, setResult, setScore, showRules} = gameSlice.actions;
 export default gameSlice.reducer;

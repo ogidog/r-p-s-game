@@ -2,8 +2,11 @@ import React from 'react';
 import './css/App.css';
 import styled from "styled-components";
 import {MainPage} from "pages/index";
+import {RulesModal} from "../widgets";
 
 const StyledContainer = styled.div`
+  position: relative;
+  
   width: 100%;
   min-width: 100vw;
   min-height: 100vh;
@@ -17,6 +20,7 @@ const StyledContainer = styled.div`
 function App() {
     return (
         <StyledContainer>
+            <RulesModal/>
             <MainPage/>
         </StyledContainer>
     );
