@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {HandSign} from "entities/index";
 import BgTriangle from "../assets/images/bg-triangle.svg";
 import {SIGNS} from "app/const";
-import {SignType} from "app/types";
 import {randomizeArrayItems} from "shared/libs/utils";
 
 const StyledContainer = styled.div`

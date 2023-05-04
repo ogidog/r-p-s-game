@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {HandSign} from "entities/index";
 import BgPentagon from "../assets/images/bg-pentagon.svg";
 import {randomizeArrayItems} from "shared/libs/utils";
-import {SignType} from "app/types";
 import {SIGNS} from "app/const";
 
 const StyledContainer = styled.div`
