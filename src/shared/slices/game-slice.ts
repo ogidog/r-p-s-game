@@ -35,7 +35,6 @@ const gameSlice = createSlice({
             state.gameScore = action.payload;
         },
         showRules: (state) => {
-            console.log(state.isRulesVisible)
             state.isRulesVisible = !state.isRulesVisible;
         }
     }

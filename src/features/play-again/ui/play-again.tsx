@@ -2,7 +2,7 @@ import * as React from 'react';
 import {ButtonB} from "shared/ui/ButtonB";
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
-import {selectGameResult, selectSign} from "shared/slices/game-slice";
+import {selectGameResult, selectSign, setResult} from "shared/slices/game-slice";
 import {FC} from "react";
 
 const StyledContainer = styled.div`
@@ -27,6 +27,7 @@ export const PlayAgain: FC<Props> = (props) => {
 
     const clickHandler = () => {
         dispatch(selectSign(""));
+        dispatch(setResult(""));
     }
 
     return (
