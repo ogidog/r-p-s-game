@@ -12,6 +12,7 @@ const StyledContainer = styled.div<{ isRulesVisible: boolean }>`
     padding-top: 15%;
     padding-bottom: 15%;
     box-sizing: border-box;
+    height: 100dvh;
   }
 
   @media (min-width: 1025px) {
@@ -19,11 +20,11 @@ const StyledContainer = styled.div<{ isRulesVisible: boolean }>`
     justify-content: center;
     align-items: center;
     background-color: rgb(8, 15, 44, 0.4);
+    height: 100vh;
   }
 
   position: absolute;
   width: 100vw;
-  height: 100vh;
 
   visibility: ${props => props.isRulesVisible ? 'visible' : 'hidden'};
   z-index: 99;
