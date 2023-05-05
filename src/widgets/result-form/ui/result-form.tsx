@@ -78,6 +78,9 @@ const computeScore = (gameResult: IGameState["gameResult"], gameScore: IGameStat
     if (gameResult === "YOU WIN") {
         gameScore += 1;
     }
+    if (gameResult === "YOU LOOSE") {
+        gameScore -= 1;
+    }
     localStorage["gameScore"] = gameScore;
 
     return gameScore;
