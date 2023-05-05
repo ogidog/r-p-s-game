@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
   box-sizing: border-box;
 
   @media (max-width: 1024px) {
-    height: 100vh;
+    height: 100dvh;
     margin: 0 auto;
   }
 
